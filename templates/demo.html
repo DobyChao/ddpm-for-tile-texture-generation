@@ -1,0 +1,137 @@
+<html>
+<head>
+    <title>瓷砖图片生成</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/demo.css" type="text/css">
+</head>
+<body>
+
+<header>
+    <!--    logo-->
+    <a class="logo-link" href="/">
+        <h1 class="nav-logo__text lh-sm" id="logo_text">Demo<span class="text-A-logo">A</span><span
+                class="text-I-logo">I</span></h1>
+    </a>
+    <!--    友情链接
+    <nav>
+        <ul>
+            <a href="https://youtube.com/channel/UCzDXYobI-mUP5WgvA37er6A"><img width="32px" alt="Youtube"
+                                                                                title="Youtube"
+                                                                                src="https://www.youtube.com/s/desktop/5aa0c1f3/img/favicon_48x48.png"/></a>
+            &#8287;&#8287;&#8287;&#8287;&#8287;
+
+            <a href="https://mobile.twitter.com/Larry37722397"><img width="32px" alt="Twitter" title="Twitter"
+                                                                    src="https://user-images.githubusercontent.com/75230173/166133135-cdd925ee-eeb3-414a-b6ce-c15cbd29d2b5.jpeg"/></a>
+            &#8287;&#8287;&#8287;&#8287;&#8287;
+
+            <a href="https://www.kaggle.com/larryzxai" alt="Dev Pro Tips Discussion & Support Server"><img width="32px"
+                                                                                                           src="https://user-images.githubusercontent.com/75230173/166133300-9c5d4b7e-ae3f-4ed5-81f3-a8c58a0862d0.jpeg"/></a>
+            &#8287;&#8287;&#8287;&#8287;&#8287;
+
+            <a href="https://dev.to/larryzx"><img width="32px" alt="Dev.to" title="DenverCoder1 Dev.to"
+                                                  src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"></a>
+            &#8287;&#8287;&#8287;&#8287;&#8287;
+
+            <a href="https://ko-fi.com/larry59868"><img width="32px" alt="Ko-fi" title="Buy me a coffee"
+                                                        src="https://i.imgur.com/PpLeD3K.png"/></a>
+            &#8287;&#8287;&#8287;&#8287;&#8287;
+
+            <a href="https://www.zhihu.com/people/larry-19-22-31"><img width="32px" alt="zhihu"
+                                                                       src="https://static.zhihu.com/heifetz/assets/apple-touch-icon-60.8f6c52aa.png"></a>
+            <a class="logo-link" href="" target="_blank"><img
+                    class="header-social-icon"></a>
+        </ul>
+    </nav>
+    -->
+</header>
+
+
+<main>
+    <div class="left_type">
+
+        <!--
+        <div class="demo-image-container">
+
+            <div class="demo-img-button"
+                 style="background-image: url('static/image/colorier_image/demo/demo1.JPG')"
+                 onclick="changeDemoImage(this)"
+                 id="demo1">
+
+            </div>
+
+
+            <div class="demo-img-button"
+                 style="background-image: url('static/image/colorier_image/demo/demo2.JPG')"
+                 onclick="changeDemoImage(this)"
+                 id="demo2">
+            </div>
+
+
+            <div class="demo-img-button"
+                 style="background-image: url('static/image/colorier_image/demo/demo3.png')"
+                 onclick="changeDemoImage(this)"
+                 id="demo3">
+            </div>
+
+
+            <div class="demo-img-button"
+                 style="background-image: url('static/image/colorier_image/demo/demo4.jpg')"
+                 onclick="changeDemoImage(this)"
+                 id="demo4">
+            </div>
+
+
+        </div>
+        demo展示-->
+        <h1>瓷砖图片生成</h1>
+
+        <p class="description">在下方选择图片类别（0 ~ 85）后确认并预览图片，随机生成请输入其他数字，如100；右侧选择图像大小并生成。</p>
+        <div class="left-type-image">
+            <div style="width: 240px; height: 240px; margin-left: auto; margin-right: auto; margin-top: 4px;"><img
+                    id="show_img"
+                    style="position: relative; width: 100%; height: 100%;object-fit: contain;">
+            </div>
+            <div style="margin-top: 1px">
+                <input
+                        type="text"
+                        id="input"
+                        value="0"
+                        style="width: 60px; height: 24px; text-align: center; margin-left: 89px"
+                        oninput="showImage()">
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="to_right"></div>
+    </div>
+    <!--描述-->
+    <div class="try-it">
+        <div id="bottom">
+            <div class="size">
+                <input type="radio" name="size" value="64" checked>64
+                <input type="radio" name="size" value="128">128
+            </div>
+            <div>
+                &nbsp&nbsp<input type="submit" value="生成" style="width: 50px" onclick="tempFunc()">
+            </div>
+        </div>
+
+        <div class="try-it-result-area"><img
+                id="change_img"
+                style="position: relative; width: 512px; height: 512px; object-fit: contain">
+        </div>
+    </div>
+
+</main>
+
+
+<footer>
+</footer>
+
+<script src="../static/js/demo.js"></script>
+<script src="../static/js/jquery.min.js"></script>
+
+</body>
+</html>

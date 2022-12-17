@@ -1,0 +1,27 @@
+# model params
+n_T: 1000
+betas: [1.0e-4, 0.02]
+in_channels: 3
+n_channels: 128
+ch_mults: [1, 2, 3, 4]
+is_attn: [False, True, True, True]
+dropout: 0.1
+n_blocks: 2
+biggan: False
+n_classes : 86
+shape: 64
+
+# training params
+n_epoch: 200
+batch_size: 16
+lrate: 1.0e-4
+load_epoch: 50
+flip: False
+
+
+# testing params
+w: 0.3
+save_dir: './Logs_color'
+save_model: True
+save_every: 10
+test_every: 1
