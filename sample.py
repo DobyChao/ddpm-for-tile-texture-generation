@@ -4,9 +4,7 @@ import random
 
 import numpy as np
 import torch
-import torch.distributed as dist
 import yaml
-from torch.optim.lr_scheduler import CosineAnnealingLR
 from torchvision.utils import make_grid, save_image
 
 from model.DDPM import DDPM

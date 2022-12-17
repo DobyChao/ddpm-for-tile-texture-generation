@@ -5,10 +5,6 @@ import random
 import numpy as np
 import torch
 import yaml
-from torch.optim.lr_scheduler import CosineAnnealingLR
-from torch.utils.data import DataLoader
-from torchvision import transforms
-from torchvision.datasets import CIFAR10
 from torchvision.utils import make_grid, save_image
 from tqdm import tqdm
 
