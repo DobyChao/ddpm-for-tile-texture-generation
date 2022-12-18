@@ -46,12 +46,13 @@ def sample(opt):
     yaml_path = opt["config"]
     with open(yaml_path, 'r') as f:
         conf = yaml.full_load(f)
-        opt.update(conf)
+        conf.update(opt)
+        opt = conf
 
     opt = Config(opt)
     # print(opt)
 
-    device = "cuda"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     ddpm = DDPM(nn_model=UNet(image_channels=opt.in_channels,
                               n_channels=opt.n_channels,
                               ch_mults=opt.ch_mults,

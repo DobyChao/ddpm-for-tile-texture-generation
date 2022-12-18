@@ -32,22 +32,18 @@ def sample(opt):
     yaml_path = opt.config
     with open(yaml_path, 'r') as f:
         conf = yaml.full_load(f)
-        opt = vars(opt)
-        opt.update(conf)
+        conf.update(vars(opt))
+        opt = conf
 
-    opt = Config(opt)
     print(opt)
+    opt = Config(opt)
     mode = opt.mode
     steps = opt.steps
     eta = opt.eta
     batches = opt.batches
     w = opt.w
 
-    # ep = opt.n_epoch - 1
-    ep = 199
-
-
-    device = "cuda"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     ddpm = DDPM(nn_model=UNet(image_channels=opt.in_channels,
                               n_channels=opt.n_channels,
                               ch_mults=opt.ch_mults,
@@ -61,15 +57,16 @@ def sample(opt):
                 device=device,
                 drop_prob=0.1)
     ddpm.to(device)
-
-    # target = os.path.join(opt.save_dir, "ckpts", f"model_{ep}.pth")
-    target = "./final_ckpt/model_for_64.pth"
+    if opt.model_path == "":
+        # target = os.path.join(opt.save_dir, "ckpts", f"model_{ep}.pth")
+        target = "./final_ckpt/model_for_64.pth"
+    else:
+        target = opt.model_path
     print("loading model at", target)
     checkpoint = torch.load(target, map_location=device)
 
     ddpm.load_state_dict(checkpoint['DDPM'])
-
-
+    ep = checkpoint['epoch']
 
     model = ddpm
     import datetime
@@ -85,7 +82,7 @@ def sample(opt):
         raise NotImplementedError()
     os.makedirs(gen_dir, exist_ok=True)
     gen_dir_png = os.path.join(gen_dir, "pngs")
-    os.makedirs(gen_dir_png, exist_ok=True) 
+    os.makedirs(gen_dir_png, exist_ok=True)
     res = []
     print(opt.n_classes)
     for batch in range(batches):
@@ -120,11 +117,11 @@ if __name__ == "__main__":
     parser.add_argument("--config", type=str, default="./config/config_64.yaml")
     parser.add_argument("--mode", type=str, choices=['DDPM', 'DDIM'], default='DDIM')
     parser.add_argument("--steps", type=int, default=100)
-    parser.add_argument("--eta", type=float, default=1.0)
+    parser.add_argument("--eta", type=float, default=0.0)
     parser.add_argument("--batches", type=int, default=500)
-    parser.add_argument("--ema", action='store_true', default=False)
     parser.add_argument("--w", type=float, default=0.3)
-    opt = parser.parse_args()
+    parser.add_argument("--model_path", type=str, default="")
+    args = parser.parse_args()
 
     # init_seeds(5465)
-    sample(opt)
+    sample(args)

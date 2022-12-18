@@ -1,0 +1,33 @@
+# model params
+n_T: 1000
+betas: [1.0e-4, 0.02]
+in_channels: 3
+n_channels: 128  # 256 for shape (128+, 128+)
+# In Beat GANs (ImageNet):
+# [1, 2, 3, 4] for shape (64, 64)
+# [1, 1, 2, 3, 4] for shape (128, 128)
+# [1, 1, 2, 2, 4, 4] for shape(256, 256)
+ch_mults: [1, 2, 2, 2]
+is_attn: [False, False, True, False]  # Keep len(is_attn) == len(ch_mults), Set the penultimate to true.
+dropout: 0.1
+n_blocks: 2
+biggan: False  # BigGAN up/down sampling
+n_classes : 10  # The number of classes
+shape: 32  # (shape, shape)
+
+
+
+# training params
+n_epoch: 200
+batch_size: 16
+lrate: 1.0e-4  # learning rate
+load_epoch: -1  # -1 for not loading. If you use --load_latest, this setting is overwritten
+flip: False  # randomly filp images when training
+
+
+# testing params
+w: 0.3
+save_dir: './Logs'  # model, visual and sampling results will be saved here
+save_model: True  # whether to save model per [save_every], latest will always be saved
+save_every: 10
+test_every: 1  # sample per [test_every], will be saved at save_dir/visual
