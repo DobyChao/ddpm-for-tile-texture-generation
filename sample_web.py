@@ -49,8 +49,10 @@ def sample(opt):
         conf.update(opt)
         opt = conf
 
-    opt = Config(opt)
+
     # print(opt)
+    opt = Config(opt)
+
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     ddpm = DDPM(nn_model=UNet(image_channels=opt.in_channels,

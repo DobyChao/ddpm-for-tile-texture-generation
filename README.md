@@ -24,7 +24,9 @@ dataset/
     ├── ...
 ```
 ## Train
-Make sure that the configuration files in `config/` meet your needs, or create a new one refer to the template instead.
+Make sure that the configuration files in `config/` meet your needs, or create a new one instead.
+
+View `config/template.yaml` for more information.
 ```
 config/
 ├── template.yaml
@@ -65,6 +67,8 @@ Then run
 ```
 python app.py
 ```
-and access to `127.0.0.1/Image_Generate`.
+and access `127.0.0.1/Image_Generate`.
+
+We have released models [here](https://1drv.ms/u/s!Au9Bc8R_q-CDhT0uayEk2bkuN0dU?e=brs9ch) used for demo.
 ## Acknowledgement
 The codes are heavily based on https://github.com/FutureXiang/Diffusion. The model parameters are set with reference to [Beat GANs](https://arxiv.org/abs/2105.05233).
