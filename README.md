@@ -1,4 +1,4 @@
-# DDPM for tile texture generation
+# [DDPM for tile texture generation](https://github.com/DobyChao/ddpm-for-tile-texture-generation)
 A tile texture generater using Denoising Diffusion Probabilistic Models (DDPM) with Classifier-free Guidance and DDIM sampling.
 
 ![](static/image/42.jpg) ![](static/image/68.jpg)
